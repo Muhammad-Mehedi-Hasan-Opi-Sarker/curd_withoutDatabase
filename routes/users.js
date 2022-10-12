@@ -29,21 +29,14 @@ router.delete("/:id", (req, res) => {
   res.send(`your item ${id} deleted`);
 });
 
-router.patch("/:id", (req, res) => {
-  const id = req.params.id;
-  const { firstName, lastName, city } = req.body;
-  const user = users.find((user) => user.id == id);
-  if (firstName) user.firstName = firstName;
-  if (lastName) user.lastName = lastName;
-  if (city) user.city = city;
-  res.send(`updated ${id} name`);
+router.patch("/:id", (req, res)=>{
+    const id = req.params.id;
+    const {firstName, lastName, city} = req.body;
+    const user = users.find((user)=> user.id ==id);
+    if(firstName) user.firstName = firstName;
+    if(lastName) user.lastName = lastName;
+    if(city) user.city = city;
+    res.send(`updated ${id} name`)
 });
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  const found = users.find((user) => user.id == id);
-  res.send(found);
-});
-
-
 
 module.exports = router;
