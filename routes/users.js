@@ -38,6 +38,12 @@ router.patch("/:id", (req, res) => {
   if (city) user.city = city;
   res.send(`updated ${id} name`);
 });
+router.get("/:id", (req, res) => {
+  const id = req.params.id;
+  const found = users.find((user) => user.id == id);
+  res.send(found);
+});
+
 
 
 module.exports = router;
