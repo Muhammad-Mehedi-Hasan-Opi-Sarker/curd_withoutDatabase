@@ -23,6 +23,11 @@ router.get("/:id", (req, res) => {
     res.send(`Api is called ${user.firstName} added`);
   });
   
+  router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    users = users.filter((use) => use.id != id);
+    res.send(`your item ${id} deleted`);
+  });
   
-
+  
 module.exports = router;
